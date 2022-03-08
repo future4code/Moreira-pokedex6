@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ErrorPage from "../pages/error/error";
 import Home from "../pages/home/home";
 import Pokedex from "../pages/pokedex/pokedex";
-import PokedexDetails from "../pages/pokedexDetail/pokedexDetail";
+import PokedexDetails from "../pages/pokedexDetail/PokedexDetail";
 
 export default function Rotas () {
 
