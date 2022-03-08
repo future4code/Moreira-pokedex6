@@ -1,11 +1,12 @@
 import React from "react";
-
+import HeaderHome from "../../components/HeaderHome";
+import CardPokemon from "./CardPokemon";
 export default function Home() {
+  return (
+    <div>
+      <HeaderHome />
 
-  return <div>
-
-    <h1>Home</h1>
-
-  </div>
+      <CardPokemon nome="título" />
+    </div>
+  );
 }
-
