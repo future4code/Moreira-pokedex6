@@ -3,6 +3,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  background-color: honeydew ;
 `;
 export const HeaderContainerDisplay = styled.div`
   display: flex;
