@@ -1,8 +1,13 @@
 import React from "react";
+import GlobalState from "./Global/GlobalState";
 import Routes from "./routes/Routes";
 
 function App() {
-  return <Routes/>
+  return (
+    <GlobalState>
+      <Routes />
+    </GlobalState>
+  );
 }
 
 export default App;
