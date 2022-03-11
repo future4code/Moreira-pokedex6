@@ -13,7 +13,7 @@ export default function Rotas () {
 				<Routes>
 					<Route exact path="/" element={<Home/>} />
 					<Route exact path="/pokedex" element={<Pokedex/>} />
-					<Route exact path="/pokedex-detail" element={<PokedexDetails/>} />
+					<Route exact path="/pokedex-detail/:name" element={<PokedexDetails/>} />
 					<Route exact path="*" element={<ErrorPage />} />
 
 				</Routes>

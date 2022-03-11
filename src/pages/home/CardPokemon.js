@@ -1,37 +1,30 @@
 import React from "react";
 import { ImgPoke, CardContainer } from "./style";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import axios from "axios";
-
+import { useNavigate } from "react-router-dom";
 export default function CardPokemon(props) {
-  const [img, setImg] = useState([]);
-  useEffect(() => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon/" + props.nomes)
-      .then((res) => {
-        setImg(
-          res.data.sprites.versions["generation-v"]["black-white"].animated
-            .front_default
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  const navigate = useNavigate();
+  const goToDetails = (name) => {
+    navigate(`/pokedex-detail/${name}`);
+  };
 
   return (
     <div>
       <CardContainer>
         <h1>{props.nomes}</h1>
         <div>
-          <ImgPoke src={img} alt="foto-pokemon" />
+          <ImgPoke
+            src={
+              props.pokemon &&
+              props.pokemon.sprites.versions["generation-v"]["black-white"]
+                .animated.front_default
+            }
+            alt="foto-pokemon"
+          />
         </div>
         <div>
           <button> Adicionar a pokédex</button>
-          <Link to="/pokedex-detail">
-            <button>Ver detalhes</button>
-          </Link>
+
+          <button onClick={() => goToDetails(props.nomes)}>Ver detalhes</button>
         </div>
       </CardContainer>
     </div>

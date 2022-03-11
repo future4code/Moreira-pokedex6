@@ -3,15 +3,18 @@ import CardPokemon from "./CardPokemon";
 import { ContainerCard } from "./style";
 import { GlobalContext } from "../../Global/GlobalContext";
 import { useContext } from "react";
+
 export default function Home() {
-  const { data } = useContext(GlobalContext);
-  const listName = data?.map((poke) => {
-    return <CardPokemon key={poke.url} nomes={poke.name} />;
+  const { pokeDetails } = useContext(GlobalContext);
+  const listPokemons = pokeDetails?.map((pokemon) => {
+    return (
+      <CardPokemon key={pokemon.id} nomes={pokemon.name} pokemon={pokemon} />
+    );
   });
   return (
     <div>
       <HeaderHome />
-      <ContainerCard> {listName}</ContainerCard>
+      <ContainerCard>{listPokemons}</ContainerCard>
     </div>
   );
 }
