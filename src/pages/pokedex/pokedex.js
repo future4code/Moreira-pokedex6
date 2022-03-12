@@ -1,25 +1,31 @@
-import React from "react";
+import React, {useContext} from "react";
 import HeaderPokedex from "../../components/HeaderPokedex";
-import { Card, ContainerCard } from "./style";
-import { Link } from "react-router-dom";
-export default function Pokedex() {
+import { ContainerCard } from "./style";
+import { GlobalContext } from "../../Global/GlobalContext"
+import CardPokemon from "../../components/CardPokemon";
+
+export default function Pokedex(props) {
+
+  const { pokedex } = useContext(GlobalContext);
+  const listPokemons = pokedex.map((pokemon) => {
+    return (
+      <CardPokemon
+        key={pokemon.id}
+        name={pokemon.name}
+        pokemon={pokemon} />
+    );
+  });
+
+
   return (
     <div>
+
       <HeaderPokedex />
       <ContainerCard>
-        <Card>
-          <div>título</div>
-          <div>
-            <img src="https://source.unsplash.com/user/c_v_r/150x150" />
-          </div>
-          <div>
-            <button> Adicionar a pokédex</button>
-            <Link to="/pokedex-detail">
-              <button>Ver detalhes</button>
-            </Link>
-          </div>
-        </Card>
+        {listPokemons}
       </ContainerCard>
     </div>
   );
 }
+
+

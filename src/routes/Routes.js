@@ -5,20 +5,19 @@ import Home from "../pages/home/home";
 import Pokedex from "../pages/pokedex/pokedex";
 import PokedexDetails from "../pages/pokedexDetail/pokedexDetail";
 
-export default function Rotas () {
+export default function Rotas() {
 
-  return <div>
-    
-			<BrowserRouter>
-				<Routes>
-					<Route exact path="/" element={<Home/>} />
-					<Route exact path="/pokedex" element={<Pokedex/>} />
-					<Route exact path="/pokedex-detail" element={<PokedexDetails/>} />
-					<Route exact path="*" element={<ErrorPage />} />
+	return <div>
 
-				</Routes>
-			</BrowserRouter>
+		<BrowserRouter>
+			<Routes>
+				<Route exact path="/" element={<Home />} />
+				<Route exact path="/pokedex" element={<Pokedex />} />
+				<Route exact path="/pokedex-detail/:name" element={<PokedexDetails />} />
+				<Route exact path="*" element={<ErrorPage />} />
 
-  </div>
+			</Routes>
+		</BrowserRouter>
+
+	</div>
 }
-
