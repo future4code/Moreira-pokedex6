@@ -6,8 +6,8 @@ import Pokedex from "../pages/pokedex/pokedex";
 import PokedexDetails from "../pages/pokedexDetail/pokedexDetail";
 
 export default function Rotas() {
-
 	return <div>
+ 
 
 		<BrowserRouter>
 			<Routes>

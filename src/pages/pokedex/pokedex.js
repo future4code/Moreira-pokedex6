@@ -16,13 +16,13 @@ export default function Pokedex(props) {
     );
   });
 
-
   return (
     <div>
 
       <HeaderPokedex />
       <ContainerCard>
         {listPokemons}
+
       </ContainerCard>
     </div>
   );

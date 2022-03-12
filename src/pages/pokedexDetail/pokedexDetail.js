@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderDetails from "../../components/HeaderDetails";
 import {
   ContainerDetails,
@@ -8,7 +8,6 @@ import {
   ContainerAtaques,
   ContainerTipoPokemon,
 } from "./style.js";
-
 export default function PokedexDetails() {
   return (
     <div>
@@ -35,8 +34,7 @@ export default function PokedexDetails() {
           <ContainerTipo>
             <h2>Tipo</h2>
             <ContainerTipoPokemon>
-              <p>grass</p>
-              <p>poison</p>
+              <p>Fire</p>
             </ContainerTipoPokemon>
           </ContainerTipo>
           <ContainerAtaques>

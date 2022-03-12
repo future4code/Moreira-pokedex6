@@ -1,8 +1,8 @@
 import axios from "axios";
+import { async } from "q";
 import { useEffect, useState } from "react";
 import useGet from "../Hooks/useGet";
 import { GlobalContext } from "./GlobalContext";
-
 
 const GlobalState = (props) => {
   const [pokeDetails, setPokeDetails] = useState([]);
@@ -12,18 +12,18 @@ const GlobalState = (props) => {
 
   const data = useGet("?limit=20");
   const details = [];
-  const getDetails = () => {
-    data.map((poke) => {
-      axios
-        .get(`https://pokeapi.co/api/v2/pokemon/${poke.name}`)
-        .then((res) => {
-          details.push(res.data);
-          setPokeDetails([...details]);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
+  const getDetails = async () => {
+    for (const poke of data) {
+      try {
+        const res =
+          await axios
+            .get(`https://pokeapi.co/api/v2/pokemon/${poke.name}`)
+        details.push(res.data);
+        setPokeDetails([...details]);
+      } catch (err) {
+        console.log(err);
+      }
+    }
   };
   const addToPokedex = (newItem) => {
 
@@ -49,6 +49,7 @@ const GlobalState = (props) => {
     setPokedex(newPokedex);
     console.log(newPokedex)
   };
+
   useEffect(() => {
     getDetails();
   }, [data]);

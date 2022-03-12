@@ -71,3 +71,7 @@ export const ContainerAtaques = styled.div`
     box-shadow: 0 8px 16px 0 rgba(2, 0, 0, 0.2);
   }
 `;
+export const ImgPoke = styled.img`
+  width: 80px;
+  height: 80px;
+`;
