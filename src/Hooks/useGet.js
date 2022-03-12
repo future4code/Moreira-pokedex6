@@ -1,21 +1,21 @@
 import { BaseUrl } from "../constants/constants";
-
-const useGet=()=>{
-      const [name, setName] = useState([]);
- const getPoke = () => {
-   axios
-     .get(BaseUrl)
-     .then((res) => {
-    //    console.log(res.data.results.name);
-       setName(res.data.results);
-     })
-     .catch((err) => {
-       console.log(err);
-     });
- };
-   useEffect(() => {
-     getPoke();
-   }, []);
-return {}
-}
-export default useGet
+import axios from "axios";
+import { useState, useEffect } from "react";
+const useGet = (url) => {
+  const [data, setData] = useState([]);
+  const getPoke = () => {
+    axios
+      .get(BaseUrl + url)
+      .then((res) => {
+        setData(res.data.results);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+  useEffect(() => {
+    getPoke();
+  }, []);
+  return data;
+};
+export default useGet;
