@@ -1,52 +1,79 @@
-import React, { useState } from "react";
-import HeaderDetails from "../../components/HeaderDetails";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import HeaderDetails from '../../components/HeaderDetails';
 import {
-  ContainerDetails,
-  ContainerTipo,
-  CardFoto,
-  ContainerPoderes,
-  ContainerAtaques,
-  ContainerTipoPokemon,
-} from "./style.js";
-export default function PokedexDetails() {
-  return (
-    <div>
-      <HeaderDetails />
-      <ContainerDetails>
-        <div>
-          <CardFoto>
-            <img src="https://source.unsplash.com/user/c_v_r/150x150" />
-          </CardFoto>
-          <CardFoto>
-            <img src="https://source.unsplash.com/user/c_v_r/150x150" />
-          </CardFoto>
-        </div>
-        <ContainerPoderes>
-          <h2>Poderes</h2>
-          <p>hp:45</p>
-          <p>attack: 49</p>
-          <p>defense: 49</p>
-          <p>special-attack: 65</p>
-          <p>special-defense: 65</p>
-          <p>speed: 45</p>
-        </ContainerPoderes>
-        <div>
-          <ContainerTipo>
-            <h2>Tipo</h2>
-            <ContainerTipoPokemon>
-              <p>Fire</p>
-            </ContainerTipoPokemon>
-          </ContainerTipo>
-          <ContainerAtaques>
-            <h2>Principais ataques</h2>
-            <p>razor-wind</p>
-            <p>swords-dance</p>
-            <p>cut</p>
-            <p>bind</p>
-            <p>vine-whip</p>
-          </ContainerAtaques>
-        </div>
-      </ContainerDetails>
-    </div>
-  );
+	ContainerDetails,
+	ContainerTipo,
+	CardFoto,
+	ContainerPoderes,
+	ContainerAtaques,
+	ContainerTipoPokemon,
+  ImgPoke,
+  Power
+} from './style.js';
+export default function PokedexDetails(props) {
+	const [ tipe, setTipe ] = useState([]);
+  const [ imgPokemon, setImgPokemon ] = useState([])
+  const [ moves, setMoves ] = useState([])
+  const [ power, setPower ] = useState([])
+	const name = localStorage.getItem('namePokemon');
+
+	const getInfoPokemon = () => {
+		axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    .then((res) => {
+			setTipe(res.data.types);
+      setImgPokemon(res.data.sprites)
+      setMoves(res.data.moves)
+      setPower(res.data.stats)
+		});
+	};
+
+	useEffect(() => {
+		getInfoPokemon();
+	}, []);
+
+	return (
+		<div>
+			<HeaderDetails />
+			<ContainerDetails>
+				<div>
+					<CardFoto>
+						<ImgPoke src={imgPokemon.front_default}/>
+					</CardFoto>
+					<CardFoto>
+						<ImgPoke src={imgPokemon.back_default}/>
+					</CardFoto>
+				</div>
+				<ContainerPoderes>
+        <h2>Poderes</h2>
+        {power.map((dados) => {
+          return <Power key={dados.id}>
+            <p>{dados.stat.name}</p>
+            <p>{dados.base_stat}</p>
+          </Power>
+        })}
+				</ContainerPoderes>
+				<div>
+					<ContainerTipo>
+						<h2>Tipo</h2>
+						<ContainerTipoPokemon>
+              {tipe.map((dados) => {
+                return <div key={dados.id}>
+                  <p>{dados.type.name}</p>
+                </div>
+              })}
+						</ContainerTipoPokemon>
+					</ContainerTipo>
+					<ContainerAtaques>
+						<h2>Principais ataques</h2>
+            {moves.slice(0,5).map((dados) => {
+            return <div key={dados.id}>
+              <p>{dados.move.name}</p>
+            </div>
+          })}
+					</ContainerAtaques>
+				</div>
+			</ContainerDetails>
+		</div>
+	);
 }
