@@ -5,12 +5,17 @@ function HeaderDetails() {
   return (
     <HeaderContainer>
       <HeaderContainerDisplayDetails>
+
         <Link to="/pokedex">
           <button>Voltar</button>
         </Link>
         <h1>Pokedex Detalhes</h1>
         <Link to="/">
           <button>Lista de Pokémons</button>
+        </Link>
+        <h1>Pokedex details</h1>
+        <Link to="/pokedex">
+          <button>Sua pokedex</button>
         </Link>
       </HeaderContainerDisplayDetails>
     </HeaderContainer>

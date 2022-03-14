@@ -75,3 +75,8 @@ export const ImgPoke = styled.img`
   width: 80px;
   height: 80px;
 `;
+
+export const Power = styled.div`
+  display: flex;
+  flex-direction: row;
+`
