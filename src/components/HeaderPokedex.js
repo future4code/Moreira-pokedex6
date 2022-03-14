@@ -6,7 +6,7 @@ function HeaderPokedex() {
     <HeaderContainer>
       <HeaderContainerDisplay>
         <Link to="/">
-          <button>voltar</button>
+          <button>Voltar</button>
         </Link>
        
         <h1>Pokédex</h1>

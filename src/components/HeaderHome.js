@@ -6,9 +6,9 @@ function HeaderHome() {
     <HeaderContainer>
       <HeaderContainerDisplay>
         <Link to="/pokedex">
-          <button>Pokedex</button>
+          <button>Pokédex</button>
         </Link>
-        <h1>Home</h1>
+        <h1>Pokémon Game</h1>
       </HeaderContainerDisplay>
     </HeaderContainer>
   );

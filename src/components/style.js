@@ -1,9 +1,10 @@
 import styled from "styled-components";
+
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: honeydew ;
+  background-color: green;
 `;
 export const HeaderContainerDisplay = styled.div`
   display: flex;
@@ -16,4 +17,5 @@ export const HeaderContainerDisplayDetails = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
+  background-color:green;
 `;
