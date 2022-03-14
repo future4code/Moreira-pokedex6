@@ -1,6 +1,8 @@
 import React from "react";
 import { HeaderContainer, HeaderContainerDisplay } from "./style";
 import { Link } from "react-router-dom";
+import PokedexLogo from '../img/logo-pokedex.png';
+
 function HeaderPokedex() {
   return (
     <HeaderContainer>
@@ -9,7 +11,7 @@ function HeaderPokedex() {
           <button>Voltar</button>
         </Link>
        
-        <h1>Pokédex</h1>
+        <img src={PokedexLogo} alt="Logo do Pokemon" />
       </HeaderContainerDisplay>
     </HeaderContainer>
   );

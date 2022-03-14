@@ -10,7 +10,8 @@ import {
 	ContainerAtaques,
 	ContainerTipoPokemon,
 	ImgPoke,
-	Power
+	Power,
+	ContPrincipal
 } from './style.js';
 export default function PokedexDetails(props) {
 	const [tipe, setTipe] = useState([]);
@@ -35,7 +36,7 @@ export default function PokedexDetails(props) {
 	}, []);
 
 	return (
-		<div>
+		<ContPrincipal>
 			<HeaderDetails />
 			<ContainerDetails>
 				<div>
@@ -76,6 +77,6 @@ export default function PokedexDetails(props) {
 					</ContainerAtaques>
 				</div>
 			</ContainerDetails>
-		</div>
+		</ContPrincipal>
 	);
 }
