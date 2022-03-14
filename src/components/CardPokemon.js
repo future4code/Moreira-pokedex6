@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { ImgPoke, CardContainer, } from "../pages/home/style";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../Global/GlobalContext";
+import { CardContainer, ImgPoke } from "./style";
 
 
 export default function CardPokemon({name, pokemon}) {
@@ -15,7 +15,6 @@ export default function CardPokemon({name, pokemon}) {
     navigate(`/pokedex-detail/${name}`)
   }
   return (
-    <div>
       <CardContainer>
         <h1>{name}</h1>
         <div>
@@ -34,6 +33,6 @@ export default function CardPokemon({name, pokemon}) {
           <button onClick={goToDetails}>Ver detalhes</button>
         </div>
       </CardContainer>
-    </div>
+  
   );
 }

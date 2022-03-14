@@ -1,14 +1,17 @@
 import React from "react";
 import { HeaderContainer, HeaderContainerDisplay } from "./style";
 import { Link } from "react-router-dom";
+import PokedexLogo from '../img/logo-pokedex.png';
+
+
 function HeaderHome() {
   return (
     <HeaderContainer>
       <HeaderContainerDisplay>
         <Link to="/pokedex">
-          <button>Pokedex</button>
+          <button>Pokemons</button>
         </Link>
-        <h1>Home</h1>
+        <img src={PokedexLogo} alt="Logo do Pokemon" />
       </HeaderContainerDisplay>
     </HeaderContainer>
   );

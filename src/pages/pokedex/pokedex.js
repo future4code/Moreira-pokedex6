@@ -1,6 +1,6 @@
 import React, {useContext} from "react";
 import HeaderPokedex from "../../components/HeaderPokedex";
-import { ContainerCard } from "./style";
+import { ContainerCard, ContainerGeral } from "./style";
 import { GlobalContext } from "../../Global/GlobalContext"
 import CardPokemon from "../../components/CardPokemon";
 
@@ -17,14 +17,14 @@ export default function Pokedex(props) {
   });
 
   return (
-    <div>
+    <ContainerGeral>
 
       <HeaderPokedex />
       <ContainerCard>
         {listPokemons}
 
       </ContainerCard>
-    </div>
+    </ContainerGeral>
   );
 }
 

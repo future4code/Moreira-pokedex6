@@ -1,6 +1,6 @@
 import HeaderHome from "../../components/HeaderHome";
 import CardPokemon from "../../components/CardPokemon";
-import { ContainerCard } from "./style";
+import { ContainerCard, ContainerGeral } from "./style";
 import { GlobalContext } from "../../Global/GlobalContext";
 import { useContext } from "react";
 
@@ -14,11 +14,11 @@ export default function Home() {
     });
 
   return (
-    <div>
+    <ContainerGeral>
       <HeaderHome />
       <ContainerCard>
         {listPokemons}</ContainerCard>
 
-    </div>
+    </ContainerGeral>
   );
 }
